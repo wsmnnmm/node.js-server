@@ -24,17 +24,7 @@ var server = http.createServer(function (request, response) {
     if (path === '/') {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.write(`
-            <!DOCTYPE html>
-            <head>
-                <link rel="stylesheet" href="/x">
-            </head>
-            <body>
-                <h1>wsmnnmm</h1>
-                <script src="/y"> </script>
-                <img src="https://raw.githubusercontent.com/wsmnnmm/node.js-server/master/1.jpg"/>
-            </body>
-        `)
+        response.writeFile("index.html")
         response.end()
     } else if (path === '/x') {
         response.statusCode = 200
