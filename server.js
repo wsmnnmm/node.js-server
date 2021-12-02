@@ -48,7 +48,7 @@ var server = http.createServer(function (request, response) {
     }
     else if (path === "/1.jpg") {
         response.setHeader("Content-Type", "text/jpg;charset=utf-8");
-        response.write(`1.jpg`);
+        response.write(`<img src="1.jpg" alt="帅哥">`);
         response.end();
     }
     else {
