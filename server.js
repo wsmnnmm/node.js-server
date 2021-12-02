@@ -40,7 +40,7 @@ var server = http.createServer(function (request, response) {
             <h1>wsmnnmm</h1>
             <script src="/y"> </script>
             <img src="`+ img + `" />
-            https://github.com/wsmnnmm/node.js-server/blob/b11c51c31e8b08ba9098cb19e00fbc8bdf958ad2/1.jpg
+            <a href="`+ img + `">帅哥</a>
         </body>
         
         </html>`)
