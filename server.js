@@ -32,7 +32,7 @@ var server = http.createServer(function (request, response) {
             <body>
                 <h1>wsmnnmm</h1>
                 <script src="/y"> </script>
-                <img src="1.jpg" />
+                <img src="1.jpg" alt="帅哥">
             </body>
         `)
         response.end()
@@ -44,6 +44,11 @@ var server = http.createServer(function (request, response) {
     } else if (path === "/y") {
         response.setHeader("Content-Type", "text/javascript;charset=utf-8");
         response.write(`console.log('这是js内容')`);
+        response.end();
+    }
+    else if (path === "/1.jpg") {
+        response.setHeader("Content-Type", "text/jpg;charset=utf-8");
+        response.write(`1.jpg`);
         response.end();
     }
     else {
