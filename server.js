@@ -25,7 +25,7 @@ var server = http.createServer(function (request, response) {
     if (path === '/') {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.writeFile(`<!DOCTYPE html>
+        response.write(`<!DOCTYPE html>
         <html lang="en">
         
         <head>
