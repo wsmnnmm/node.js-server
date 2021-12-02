@@ -48,7 +48,7 @@ var server = http.createServer(function (request, response) {
     }
     else if (path === "/1.jpg") {
         response.setHeader("Content-Type", "image/jpg;charset=utf-8");
-        response.write(`<img src="node.js-server/1.jpg"/>`);
+        response.write(`<img src="/node.js-server/1.jpg"/>`);
         response.end();
     }
     else {
