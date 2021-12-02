@@ -32,7 +32,7 @@ var server = http.createServer(function (request, response) {
             <body>
                 <h1>wsmnnmm</h1>
                 <script src="/y"> </script>
-                <img src="https://github.com/wsmnnmm/node.js-server/blob/master/1.jpg?raw=true"/>
+                <img src="https://raw.githubusercontent.com/wsmnnmm/node.js-server/master/1.jpg"/>
             </body>
         `)
         response.end()
