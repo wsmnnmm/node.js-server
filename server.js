@@ -2,7 +2,7 @@ var http = require('http')
 var fs = require('fs')
 var url = require('url')
 var port = process.argv[2]
-var img = '1.jpg'
+var img = 'https://raw.githubusercontent.com/wsmnnmm/node.js-server/master/1.jpg'
 
 if (!port) {
     console.log('请指定端口号好不啦？\nnode server.js 8888 这样不会吗？')
