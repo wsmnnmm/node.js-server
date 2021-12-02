@@ -2,6 +2,7 @@ var http = require('http')
 var fs = require('fs')
 var url = require('url')
 var port = process.argv[2]
+var img = 'https://raw.githubusercontent.com/wsmnnmm/node.js-server/master/1.jpg'
 
 if (!port) {
     console.log('请指定端口号好不啦？\nnode server.js 8888 这样不会吗？')
@@ -24,7 +25,24 @@ var server = http.createServer(function (request, response) {
     if (path === '/') {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.writeFile("index.html")
+        response.writeFile(`<!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <link rel="stylesheet" href="/x">
+        </head>
+        
+        <body>
+            <h1>wsmnnmm</h1>
+            <script src="/y"> </script>
+            <img src=`+ img + ` />
+        </body>
+        
+        </html>`)
         response.end()
     } else if (path === '/x') {
         response.statusCode = 200
