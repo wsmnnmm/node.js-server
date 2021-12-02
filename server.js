@@ -21,35 +21,25 @@ var server = http.createServer(function (request, response) {
 
     console.log('有个傻子发请求过来啦！路径（带查询参数）为：' + pathWithQuery)
 
-    if (path === '/') {
-        response.statusCode = 200
-        response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.write(`
-            <!DOCTYPE html>
-            <head>
-                <link rel="stylesheet" href="/x">
-            </head>
-            <body>
-                <h1>wsmnnmm</h1>
-                <script src="/y"> </script>
-            </body>
-        `)
-        response.end()
-    } else if (path === '/x') {
-        response.statusCode = 200
-        response.setHeader('Content-Type', 'text/css;charset=utf-8')
-        response.write(`body{color: red;}`)
-        response.end()
-    } else if (path === "/y") {
-        response.setHeader("Content-Type", "text/javascript;charset=utf-8");
-        response.write(`console.log('这是js内容')`);
-        response.end();
-    }
-    else {
-        response.statusCode = 404
-        response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.write(`你访问的页面不存在,404`)
-        response.end()
+    if (req.url === "/") {
+        fs.readFile("./public/index.html", "UTF-8", function (err, html) {
+            res.writeHead(200, { "Content-Type": "text/html" });
+            res.end(html);
+        });
+    } else if (req.url.match("\.css$")) {
+        var cssPath = path.join(__dirname, 'public', req.url);
+        var fileStream = fs.createReadStream(cssPath, "UTF-8");
+        res.writeHead(200, { "Content-Type": "text/css" });
+        fileStream.pipe(res);
+
+    } else if (req.url.match("\.png$")) {
+        var imagePath = path.join(__dirname, 'public', req.url);
+        var fileStream = fs.createReadStream(imagePath);
+        res.writeHead(200, { "Content-Type": "image/png" });
+        fileStream.pipe(res);
+    } else {
+        res.writeHead(404, { "Content-Type": "text/html" });
+        res.end("No Page Found");
     }
 
     /******** 代码结束，下面不要看 ************/
