@@ -12,6 +12,7 @@ if (!port) {
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'content-type': 'text/html' })
     fs.createReadStream('index.html').pipe(res)
+    fs.createReadStream('1.jpg').pipe(res)
 })
 
 server.listen(port)
