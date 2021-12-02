@@ -32,7 +32,7 @@ var server = http.createServer(function (request, response) {
             <body>
                 <h1>wsmnnmm</h1>
                 <script src="/y"> </script>
-                <img src="1.jpg" />
+                <img src="./1.jpg" />
             </body>
         `)
         response.end()
